@@ -15,7 +15,6 @@ class Item
     @label = label
     @archived = archived
     @date = date
-    puts [@author, @genre, @source, @label, @date]
   end
 
   def can_be_archived?
