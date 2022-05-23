@@ -16,8 +16,7 @@ describe Item do
   end
 
   it 'should give unique id to each instance' do
-    another_instance = Item.new()
-    expect(another_instance.id).to be (3)
+    another_instance = Item.new
+    expect(another_instance.id).to be(3)
   end
-
 end
