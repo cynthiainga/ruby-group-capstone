@@ -15,8 +15,8 @@ class Author
   end
 
   def add_item(item: 0)
-    return p 'Please add an item of class Item' if item.instance_of?(Item) == false
-
+    return p 'Please add an item of <Item> class' if item.instance_of?(Item) == false
     @items.push(item)
+    item.author = self  
   end
 end
