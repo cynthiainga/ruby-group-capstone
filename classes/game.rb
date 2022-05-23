@@ -9,8 +9,7 @@ class Game < Item
 
   def can_be_archived?
     super()
-    @can_be_archived = true if calculate_years_from_last_played(@last_played_at) > 2
-    @can_be_archived
+    @can_be_archived and calculate_years_from_last_played(@last_played_at) > 2
   end
 
   private
