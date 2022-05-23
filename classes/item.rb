@@ -1,7 +1,7 @@
 require 'date'
 
 class Item
-  attr_accessor :author, :genre, :source, :label, :date
+  attr_accessor :author, :genre, :source, :label, :publish_date
   attr_reader :id, :archived
 
   @@id = 0
@@ -14,7 +14,7 @@ class Item
     @source = source
     @label = label
     @archived = archived
-    @date = date
+    @publish_date = date
   end
 
   def can_be_archived?

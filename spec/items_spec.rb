@@ -14,4 +14,10 @@ describe Item do
     @instance.move_to_archive if @instance.can_be_archived?
     expect(@instance.archived).to be(true)
   end
+
+  it 'should give unique id to each instance' do
+    another_instance = Item.new()
+    expect(another_instance.id).to be (3)
+  end
+
 end
