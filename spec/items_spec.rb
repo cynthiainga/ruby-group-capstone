@@ -1,8 +1,8 @@
-require_relative '../classes/item.rb'
+require_relative '../classes/item'
 
 describe Item do
   before(:example) do
-    @instance = Item.new(genre:'genre', author:'author') 
+    @instance = Item.new(genre: 'genre', author: 'author')
   end
 
   it 'should initialize' do
@@ -11,8 +11,7 @@ describe Item do
   end
 
   it 'should move item to archive if item can be archived' do
-    @instance.move_to_archive() if @instance.can_be_archived?()
+    @instance.move_to_archive if @instance.can_be_archived?
     expect(@instance.archived).to be(true)
   end
-
 end
