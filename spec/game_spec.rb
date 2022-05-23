@@ -1,8 +1,8 @@
-require_relative '../classes/game.rb'
+require_relative '../classes/game'
 
 describe Game do
   before(:example) do
-    @instance = Game.new()
+    @instance = Game.new
   end
 
   it 'should initialize with multiplier == false' do
