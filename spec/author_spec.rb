@@ -1,8 +1,8 @@
-require_relative '../classes/author.rb'
-require_relative '../classes/item.rb'
+require_relative '../classes/author'
+require_relative '../classes/item'
 
 describe Author do
-  before(:example)do
+  before(:example) do
     @instance = Author.new(first_name: 'Bob', last_name: 'Marley')
   end
 
@@ -10,9 +10,9 @@ describe Author do
     expect(@instance.first_name).to eq('Bob')
   end
 
-  it 'should add new item' do 
+  it 'should add new item' do
     expect(@instance.items.length).to be(0)
-    @instance.add_item(item: Item.new())
+    @instance.add_item(item: Item.new)
     expect(@instance.items.length).to be(1)
   end
 
