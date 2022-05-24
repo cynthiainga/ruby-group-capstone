@@ -20,4 +20,8 @@ class Author
     @items.push(item)
     item.author = self
   end
+
+  def make_object
+    { first_name: first_name, last_name: last_name }
+  end
 end

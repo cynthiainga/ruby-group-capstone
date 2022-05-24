@@ -6,12 +6,17 @@ class Game < Item
   def initialize(multiplayer: false, last_played_at: 0, **args)
     super(**args)
     @multiplayer = multiplayer
-    @last_played_at = last_played_at unless last_played_at.zero?
+    @last_played_at = last_played_at unless last_played_at&.zero?
   end
 
   def can_be_archived?
     super()
     @can_be_archived and calculate_years_from_last_played(@last_played_at) > 2
+  end
+
+  def make_object
+    { label: @label, archived: @archived, publish_date: @publish_date,
+      multiplayer: @multiplayer, last_played_at: @last_played_at }
   end
 
   private
