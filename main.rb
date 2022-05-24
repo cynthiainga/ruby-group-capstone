@@ -1,3 +1,4 @@
+# rubocop:disable Style/CyclomaticComplexity
 class Main
   def options
     puts "\n\nPlease select an action to perform please\n\n"
@@ -56,3 +57,5 @@ end
 
 initial = Main.new
 initial.run
+
+# rubocop:enable Style/CyclomaticComplexity
