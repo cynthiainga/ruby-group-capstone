@@ -10,3 +10,10 @@ Create table games (
   multiplayer boolean,
   last_played_at varchar(50)
 )
+
+Create table authors (
+  id serial primary key,
+  first_name varchar(50),
+  last_name varchar(50),
+)
+
