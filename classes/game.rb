@@ -14,6 +14,11 @@ class Game < Item
     @can_be_archived and calculate_years_from_last_played(@last_played_at) > 2
   end
 
+  def make_object
+    { label: @label, archived: @archived, can_be_archived: can_be_archived?, publish_date: @publish_date,
+      multiplayer: @multiplayer, last_played_at: @last_played_at }
+  end
+
   private
 
   def calculate_years_from_last_played(last_played)

@@ -1,10 +1,19 @@
 require './classes/game'
 require './classes/author'
+require './classes/file_handler'
 
 class App
   def initialize()
-    @games = []
-    @authors = []
+    @games_file_handler = FileHandler.new('games')
+    @games = @games_file_handler.read.map do |game|
+      Game.new(label: game['label'], archived: game['archived'], can_be_archived: game['can_be_archived'],
+               publish_date: game['publish_date'], multiplayer: game['multiplayer'],
+               last_played_at: game['last_played_at'])
+    end
+    @authors_file_handler = FileHandler.new('authors')
+    @authors = @authors_file_handler.read.map do |author|
+      Author.new(first_name: author['first_name'], last_name: author['last_name'])
+    end
   end
 
   def ask_user(string)
@@ -37,5 +46,10 @@ class App
 
     new_game = Game.new(label: label_, multiplayer: multiplayer_)
     @games.push(new_game)
+  end
+
+  def exit
+    @games_file_handler.write(@games.map(&:make_object))
+    @authors_file_handler.write(@authors.map(&:make_object))
   end
 end
