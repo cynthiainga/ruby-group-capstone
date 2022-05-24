@@ -1,4 +1,3 @@
-# new app
 require './classes/game'
 require './classes/author'
 
@@ -40,6 +39,3 @@ class App
     @games.push(new_game)
   end
 end
-
-# a = App.new
-# a.add_game
