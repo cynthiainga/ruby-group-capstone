@@ -17,12 +17,12 @@ class Item
     @publish_date = date
   end
 
-  def can_be_archived?
-    @can_be_archived = true
-    @can_be_archived
-  end
+  # def can_be_archived?
+  #   @can_be_archived = true
+  #   @can_be_archived
+  # end
 
-  def move_to_archive
-    @archived = true if can_be_archived?
-  end
+  # def move_to_archive
+  #   @archived = true if can_be_archived?
+  # end
 end
