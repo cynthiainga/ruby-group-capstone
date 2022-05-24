@@ -6,7 +6,7 @@ class App
   def initialize()
     @games_file_handler = FileHandler.new('games')
     @games = @games_file_handler.read.map do |game|
-      Game.new(label: game['label'], archived: game['archived'], can_be_archived: game['can_be_archived'],
+      Game.new(label: game['label'], archived: game['archived'],
                publish_date: game['publish_date'], multiplayer: game['multiplayer'],
                last_played_at: game['last_played_at'])
     end

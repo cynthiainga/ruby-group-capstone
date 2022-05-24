@@ -6,7 +6,7 @@ class Game < Item
   def initialize(multiplayer: false, last_played_at: 0, **args)
     super(**args)
     @multiplayer = multiplayer
-    @last_played_at = last_played_at unless last_played_at.zero?
+    @last_played_at = last_played_at unless last_played_at&.zero?
   end
 
   def can_be_archived?
@@ -15,7 +15,7 @@ class Game < Item
   end
 
   def make_object
-    { label: @label, archived: @archived, can_be_archived: can_be_archived?, publish_date: @publish_date,
+    { label: @label, archived: @archived, publish_date: @publish_date,
       multiplayer: @multiplayer, last_played_at: @last_played_at }
   end
 
