@@ -4,8 +4,8 @@ require './classes/author'
 
 class App
   def initialize()
-    @games = []; 
-    @authors = [];
+    @games = []
+    @authors = []
   end
 
   def ask_user(string)
@@ -26,21 +26,20 @@ class App
   end
 
   def add_game()
-    _label = ask_user("Enter game label")
-    _multiplayer = ask_user("Is it multiplayer? [Y/N]").downcase
+    label_ = ask_user('Enter game label')
+    multiplayer_ = ask_user('Is it multiplayer? [Y/N]').downcase
 
-    if _multiplayer == 'y'
-      _multiplayer = true
-    elsif _multiplayer == 'n'
-      _multiplayer = false
+    case multiplayer_
+    when 'y'
+      multiplayer_ = true
+    when 'n'
+      multiplayer_ = false
     end
-    
-    new_game = Game.new(label: _label, multiplayer: _multiplayer)
-    @games.push(new_game)
 
+    new_game = Game.new(label: label_, multiplayer: multiplayer_)
+    @games.push(new_game)
   end
 end
 
-a = App.new()
-a.add_game()
-
+# a = App.new
+# a.add_game
