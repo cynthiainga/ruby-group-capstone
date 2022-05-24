@@ -1,20 +1,20 @@
 class Main
   def options
     puts "\n\nPlease select an action to perform please\n\n"
-    puts '1. List all books'
-    puts '2. List all music albums'
-    puts '3. List all movies'
-    puts '4. List all games'
-    puts '5. List all genres'
-    puts '6. List all labels'
-    puts '7. List all authors'
-    puts '8. List all sources'
-    puts '9. Add a book'
-    puts '10. Add a music album'
-    puts '11. Add a movie'
-    puts '12. Add a game'
-    puts '13. Quit'
-    puts 'Please enter your choice'
+    puts '1. List all books
+    2. List all music albums
+    3. List all movies
+    4. List all games
+    5. List all genres
+    6. List all labels
+    7. List all authors
+    8. List all sources
+    9. Add a book
+    10. Add a music album
+    11. Add a movie
+    12. Add a game
+    13. Quit
+    Please enter your choice'
   end
 
   def run
