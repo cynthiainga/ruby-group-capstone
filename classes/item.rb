@@ -6,12 +6,11 @@ class Item
 
   @@id = 0
 
-  def initialize(author: 0, genre: 0, source: 0, label: 0, archived: false, date: DateTime.now.to_s.slice(0, 10))
+  def initialize(author: 0, genre: 0, label: 0, archived: false, date: DateTime.now.to_s.slice(0, 10))
     @id = @@id
     @@id += 1
     @author = author
     @genre = genre
-    @source = source
     @label = label
     @archived = archived
     @publish_date = date
