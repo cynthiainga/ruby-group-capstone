@@ -3,6 +3,7 @@ require_relative '../classes/genre'
 require_relative 'add_genre'
 
 def display_music_album(music_albums)
+  puts "\nMusic Albums List\n\n"
   puts 'Database is empty. Add a music album.' if music_albums.empty?
   puts
   music_albums.each do |music_album|
@@ -16,7 +17,7 @@ def display_music_album(music_albums)
 end
 
 def music_album_inputs
-  print 'Enter publish date(i.e YYYT-MM-DD): '
+  print 'Enter publish date(i.e YYYY-MM-DD): '
   publish_date = gets.chomp
   print 'Is it archived? [Yes/No]: '
   archived = gets.chomp
@@ -27,12 +28,12 @@ end
 
 def create_new_music_album(genres)
   puts
-  puts 'CREATE A NEW MUSIC ALBUM'
+  puts "Create a new music album\n\n"
   publish_date, archived, on_spotify = music_album_inputs
   puts
   music_album = MusicAlbum.new(on_spotify, publish_date, archived)
   add_genres(genres, music_album)
   puts
-  puts "Music_album created successfully."
+  puts "Music_album created successfully.\n\n"
   music_album
 end
