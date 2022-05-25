@@ -1,27 +1,18 @@
 require_relative './item'
 
-class Author
-  attr_accessor :first_name, :last_name
-  attr_reader :items
+class Author < Item
+  attr_accessor :id, :first_name, :last_name, :items
 
-  @@id = 0
-
-  def initialize(first_name: 0, last_name: 0)
-    @id = @@id
-    @@id += 1
+  def initialize(first_name, last_name)
+    super(Date.today, false)
+    @id = Random.rand(1..1000)
     @first_name = first_name
     @last_name = last_name
     @items = []
   end
 
-  def add_item(item: 0)
-    return p 'Please add an item of <Item> class' unless item.instance_of?(Item)
-
-    @items.push(item)
+  def add_item(item)
+    @items << item
     item.author = self
-  end
-
-  def make_object
-    { first_name: first_name, last_name: last_name }
   end
 end

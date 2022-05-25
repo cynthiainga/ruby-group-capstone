@@ -1,19 +1,12 @@
-Create table games (
-  id serial primary key,
-  genre int references genres(id),
-  author int references author(id),
-  source int references source(id),
-  label int references label(id),
-  published_date varchar(50),
-  archived boolean,
-  can_be_archived boolean,
-  multiplayer boolean,
-  last_played_at varchar(50)
-)
+CREATE TABLE game (
+    last_played_at DATE,
+    multiplayer BOOLEAN,
+);
 
-Create table authors (
-  id serial primary key,
-  first_name varchar(50),
-  last_name varchar(50),
-)
-
+CREATE TABLE authors (
+    id  INT GENERATED ALWAYS AS IDENTITY,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    PRIMARY KEY(id)
+    FOREIGN KEY(id) REFERENCES item(id)
+);
