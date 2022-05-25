@@ -1,9 +1,9 @@
 AllCops:
   NewCops: enable
   Exclude:
-    - "Guardfile"
-    - "Rakefile"
-    - "node_modules/**/*"
+    - 'Guardfile'
+    - 'Rakefile'
+    - 'node_modules/**/*'
 
   DisplayCopNames: true
 
@@ -22,7 +22,6 @@ Metrics/ParameterLists:
   Max: 10
 Metrics/CyclomaticComplexity:
   Enabled: false
-
 
 Style/Documentation:
   Enabled: false
@@ -56,3 +55,5 @@ Style/HashTransformValues:
   Enabled: false
 Style/ClassVars:
   Enabled: false
+Style/EndOfLine:
+  EnforcedStyle: lf
