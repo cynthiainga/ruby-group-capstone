@@ -1,9 +1,10 @@
 require_relative './modules/game_module'
 require_relative './modules/list_game'
 require_relative './modules/preserve_games'
-require_relative './module/display_music'
-require_relative './module/display_genre'
+require_relative './modules/display_music'
+require_relative './modules/display_genre'
 require_relative './classes/genre'
+require_relative './classes/music_album'
 
 class App
   attr_accessor :books, :games, :authors, :music_albums
