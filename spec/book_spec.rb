@@ -1,5 +1,5 @@
-require './classes/label'
-require './classes/book'
+require '../classes/label'
+require '../classes/book'
 
 describe 'Book' do
   context 'takes a book and validates can_be_archived method' do
