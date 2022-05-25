@@ -1,55 +1,75 @@
-require './classes/game'
-require './classes/author'
-require './classes/file_handler'
+require_relative './modules/game_module'
+require_relative './modules/list_game'
+require_relative './modules/preserve_games.rb'
 
 class App
-  def initialize()
-    @games_file_handler = FileHandler.new('games')
-    @games = @games_file_handler.read.map do |game|
-      Game.new(label: game['label'], archived: game['archived'],
-               publish_date: game['publish_date'], multiplayer: game['multiplayer'],
-               last_played_at: game['last_played_at'])
-    end
-    @authors_file_handler = FileHandler.new('authors')
-    @authors = @authors_file_handler.read.map do |author|
-      Author.new(first_name: author['first_name'], last_name: author['last_name'])
-    end
+  attr_accessor :books, :games, :authors, :music_albums
+
+  include InitializeMethods
+  include Listing
+  include PreserveGames
+
+  def initialize
+    @books = []
+    @authors = []
+    @labels = []
+    @genres = []
+    @music_albums = []
+    @games = []
   end
 
-  def ask_user(string)
-    p "#{string}: "
-    gets.chomp
+  def list_all_books
+    puts 'list all books'
   end
 
-  def list_all_games()
-    @games.map do |game|
-      "Id: #{game.id}, Label: #{game.label}, Multiplayer: #{game.multiplayer}, Last played: #{game.last_played_at}"
-    end
+  def add_a_book
+    puts 'add a book'
   end
 
-  def list_all_authors()
-    @authors.map do |author|
-      "Id: #{author.id}, First name: #{author.first_name}, Last name: #{author.last_name}"
-    end
+  def list_all_labels
+    puts 'list all labels'
   end
 
-  def add_game()
-    label_ = ask_user('Enter game label')
-    multiplayer_ = ask_user('Is it multiplayer? [Y/N]').downcase
-
-    case multiplayer_
-    when 'y'
-      multiplayer_ = true
-    when 'n'
-      multiplayer_ = false
-    end
-
-    new_game = Game.new(label: label_, multiplayer: multiplayer_)
-    @games.push(new_game)
+  def save_data
+    save_games
+    save_authors
   end
 
-  def exit
-    @games_file_handler.write(@games.map(&:make_object))
-    @authors_file_handler.write(@authors.map(&:make_object))
+  def save_book
+    puts 'save_book'
+  end
+
+  def load_book
+    puts 'Load book'
+  end
+
+  def list_all_music_albums
+    puts 'list music albums'
+  end
+
+  def list_all_genres
+    puts 'list genres'
+  end
+
+  def add_music_album
+    puts 'add music album'
+  end
+
+  def list_all_games
+    list_games(@games)
+    sleep 2
+  end
+
+  def add_a_game
+    game = create_new_game
+    @games << game
+    @authors << game.author
+    puts "\nThank you for adding a new game.\n"
+    sleep 3
+  end
+
+  def list_all_authors
+    list_authors(@authors)
+    sleep 2
   end
 end
