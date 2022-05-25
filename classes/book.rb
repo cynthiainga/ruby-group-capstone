@@ -16,5 +16,3 @@ class Book < Item
     super || @cover_state == 'bad'
   end
 end
-
-print Book.new('The Best Book', 'publisher', 'bad', '2020-01-01').inspect

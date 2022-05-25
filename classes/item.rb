@@ -38,4 +38,3 @@ class Item
   end
 end
 
-print Item.new(Date.today, false).inspect
