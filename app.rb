@@ -1,6 +1,6 @@
 require_relative './modules/game_module'
 require_relative './modules/list_game'
-require_relative './modules/preserve_games.rb'
+require_relative './modules/preserve_games'
 
 class App
   attr_accessor :books, :games, :authors, :music_albums
