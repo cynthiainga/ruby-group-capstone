@@ -5,6 +5,9 @@ require_relative './modules/display_music'
 require_relative './modules/display_genre'
 require_relative './classes/genre'
 require_relative './classes/music_album'
+require_relative './classes/book'
+require_relative './modules/add_book'
+require_relative './classes/label'
 
 class App
   attr_accessor :books, :games, :authors, :music_albums
@@ -27,7 +30,8 @@ class App
   end
 
   def add_a_book
-    puts 'add a book'
+    # @books << new_book
+    puts 'Book is created'
   end
 
   def list_all_labels

@@ -37,3 +37,5 @@ class Item
     (currently_year - publish_year) >= 10
   end
 end
+
+print Item.new(Date.today, false).inspect

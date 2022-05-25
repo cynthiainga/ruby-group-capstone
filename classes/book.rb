@@ -4,7 +4,7 @@ class Book < Item
   attr_accessor :title, :publisher, :cover_state
 
   def initialize(title, publisher, cover_state, publish_date)
-    super(publish_date, archived, id)
+    super(publish_date, archived)
     @title = title
     @publisher = publisher
     @cover_state = cover_state
@@ -16,3 +16,5 @@ class Book < Item
     super || @cover_state == 'bad'
   end
 end
+
+print Book.new('The Best Book', 'publisher', 'bad', '2020-01-01').inspect
