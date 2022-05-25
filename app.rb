@@ -1,6 +1,10 @@
 require_relative './modules/game_module'
 require_relative './modules/list_game'
 require_relative './modules/preserve_games'
+require_relative './modules/display_music'
+require_relative './modules/display_genre'
+require_relative './classes/genre'
+require_relative './classes/music_album'
 
 class App
   attr_accessor :books, :games, :authors, :music_albums
@@ -13,7 +17,7 @@ class App
     @books = []
     @authors = []
     @labels = []
-    @genres = []
+    @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
     @music_albums = []
     @games = []
   end
@@ -52,7 +56,7 @@ class App
   end
 
   def add_music_album
-    puts 'add music album'
+    @music_albums << create_new_music_album(@genres)
   end
 
   def list_all_games
