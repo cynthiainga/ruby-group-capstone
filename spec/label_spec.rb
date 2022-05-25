@@ -1,5 +1,5 @@
-require '../classes/label'
-require '../classes/book'
+require './classes/label'
+require './classes/book'
 
 describe 'Label' do
   context 'takes label and validates it\'s properties' do
