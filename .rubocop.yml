@@ -56,4 +56,4 @@ Style/HashTransformValues:
 Style/ClassVars:
   Enabled: false
 Style/EndOfLine:
-  EnforcedStyle: false
+  EnforcedStyle: lf
