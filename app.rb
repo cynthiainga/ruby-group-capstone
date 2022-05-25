@@ -15,6 +15,7 @@ class App
   include InitializeMethods
   include Listing
   include PreserveGames
+  include AddBook
 
   def initialize
     @books = []
@@ -26,11 +27,15 @@ class App
   end
 
   def list_all_books
-    puts 'list all books'
+    puts 'There are no books available' if @books.empty?
+    @books.each do |book|
+      puts "Title: #{book.title}, Publisher: #{book.publisher},
+      Cover state: #{book.cover_state}, Date of Publish: #{book.publish_date}"
+    end
   end
 
   def add_a_book
-    # @books << new_book
+    @books << new_book
     puts 'Book is created'
   end
 
