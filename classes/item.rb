@@ -1,14 +1,16 @@
 require 'date'
 
 class Item
-  attr_accessor :publish_date
-  attr_reader :id, :archived, :author, :genre, :source, :label
+  attr_accessor :publish_date, :archived, :id
+  attr_reader :author, :genre, :source, :label
 
-  def initialize(publish_date, archived)
-    @id = Random.rand(1..1000)
+  # rubocop:disable Style/OptionalBooleanParameter
+  def initialize(publish_date, archived = false, id = Random.rand(1..1000))
+    @id = id
     @publish_date = publish_date
     @archived = archived
   end
+  # rubocop:enable Style/OptionalBooleanParameter
 
   def genre=(genre)
     @genre = genre
@@ -32,8 +34,8 @@ class Item
   private
 
   def can_be_archived?
-    currently_year = DateTime.now.next_month.strftime('%Y').to_i
-    publish_year = @publish_date.to_i
-    (currently_year - publish_year) >= 10
+    now = Date.today.year
+    published = @publish_date.to_i
+    (now - published) >= 10
   end
 end
