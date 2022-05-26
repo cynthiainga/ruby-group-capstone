@@ -2,13 +2,14 @@ require_relative './modules/game_module'
 require_relative './modules/list_game'
 require_relative './modules/preserve_games'
 require_relative './modules/display_music'
-require_relative './modules/display_genre'
 require_relative './classes/genre'
 require_relative './classes/music_album'
 require_relative './classes/book'
 require_relative './modules/add_book'
 require_relative './modules/preserve_book'
 require_relative './classes/label'
+require_relative './modules/preserve_music_album'
+require_relative './modules/preserve_genre'
 
 class App
   attr_accessor :books, :games, :authors, :music_albums
@@ -18,14 +19,17 @@ class App
   include PreserveGames
   include AddBook
   include PreserveBook
+  include MusicAlbumManager
+  include PreserveMusicAlbums
+  include PreserveGenres
 
   def initialize
     @books = load_book
-    @authors = []
+    @authors = load_authors
     @labels = load_label
-    @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
-    @music_albums = []
-    @games = []
+    @genres = load_genres
+    @music_albums = load_music_albums(@genres)
+    @games = load_games
   end
 
   def list_all_books
@@ -52,22 +56,17 @@ class App
     save_games
     save_authors
     create_book
+    save_music_album(@music_albums)
   end
-
-  def save_book
-    puts 'save_book'
-  end
-
-  # def load_book
-  #   puts 'Load book'
-  # end
 
   def list_all_music_albums
-    puts 'list music albums'
+    display_music_album(@music_albums)
   end
 
   def list_all_genres
-    puts 'list genres'
+    @genres.each do |genre|
+      puts "Name: #{genre.name}"
+    end
   end
 
   def add_music_album
