@@ -65,7 +65,7 @@ In auto-correct mode, RuboCop will try to automatically fix offenses:
 
 `rubocop -A`
 
-**<div align=center>OR</div>**
+**OR**
 
 `rubocop --auto-correct-all`
 
