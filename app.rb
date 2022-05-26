@@ -5,6 +5,10 @@ require_relative './modules/display_music'
 require_relative './modules/display_genre'
 require_relative './classes/genre'
 require_relative './classes/music_album'
+require_relative './classes/book'
+require_relative './modules/add_book'
+require_relative './modules/preserve_book'
+require_relative './classes/label'
 
 class App
   attr_accessor :books, :games, :authors, :music_albums
@@ -12,22 +16,29 @@ class App
   include InitializeMethods
   include Listing
   include PreserveGames
+  include AddBook
+  include PreserveBook
 
   def initialize
-    @books = []
+    @books = load_book
     @authors = []
-    @labels = []
+    @labels = load_label
     @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
     @music_albums = []
     @games = []
   end
 
   def list_all_books
-    puts 'list all books'
+    puts 'There are no books available' if @books.empty?
+    @books.each do |book|
+      puts "Title: #{book.title}, Publisher: #{book.publisher},
+      Cover state: #{book.cover_state}, Date of Publish: #{book.publish_date}"
+    end
   end
 
   def add_a_book
-    puts 'add a book'
+    @books << new_book
+    puts 'Book is created'
   end
 
   def list_all_labels
@@ -37,15 +48,16 @@ class App
   def save_data
     save_games
     save_authors
+    create_book
   end
 
   def save_book
     puts 'save_book'
   end
 
-  def load_book
-    puts 'Load book'
-  end
+  # def load_book
+  #   puts 'Load book'
+  # end
 
   def list_all_music_albums
     puts 'list music albums'
