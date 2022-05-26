@@ -42,7 +42,10 @@ class App
   end
 
   def list_all_labels
-    puts 'list all labels'
+    puts 'There are no labels available' if @labels.empty?
+    @labels.each do |label|
+      puts "Title: #{label.title}, Color: #{label.color}"
+    end
   end
 
   def save_data
