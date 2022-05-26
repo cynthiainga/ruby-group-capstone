@@ -1,62 +1,99 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Catalog of My Things (Ruby Group Capstone Project)
 
-# Project Name
+> In this project, we create a console app that will help user to keep a record of different types of things he won: books, music albums, and games. Everything will be based on the UML class diagram presented below. The data will be stored in JSON files but we also prepare a database with tables structure analogical to our program's class structure.
 
-> Description the project.
-
+![schema](https://raw.githubusercontent.com/microverseinc/curriculum-ruby/main/group-capstone/images/catalog_of_my_things.png?token=GHSAT0AAAAAABQQDFYMY5Z2J6QEWFCWDVOQYTL3YUQ)
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+### Languages
 
-## Live Demo (if available)
+- Ruby
+- SQL
 
-[Live Demo Link](https://livedemo.com)
+### Tools
+
+- Git
+- GitHub
+- Visual Studio Code
+
+## Link Video
+
+[Video Demo Link]()
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+You will be needing:
 
+- A terminal
+- A code editor
+- Ruby (follow the instruction based on your OS)
 
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
+`https://www.ruby-lang.org/en/documentation/installation/`
 
 ### Setup
 
-### Install
+### Clone this repository
 
-### Usage
+`git clone https://github.com/cynthiainga/ruby-group-capstone.git`
+
+### Move into the directory with
+
+`cd ruby-group-capstone`
+
+### Run Project
+
+`ruby main.rb`
+
+### Install linter
+
+`bundle install`
+
+### Run linter
+
+`rubocop`
 
 ### Run tests
 
-### Deployment
+`rspec spec`
 
+### Auto-correct
+
+In auto-correct mode, RuboCop will try to automatically fix offenses:
+
+`rubocop -A`
+
+**<div align=center>OR</div>**
+
+`rubocop --auto-correct-all`
 
 
 ## Authors
 
-👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Candy Inga Cynthia**
 
-👤 **Author2**
+- GitHub: [@cynthiainga](https://github.com/cynthiainga)
+- Twitter: [@CynthiaInga_C](https://twitter.com/CynthiaInga_C)
+- LinkedIn: [Cynthia Inga](https://www.linkedin.com/in/cynthia-inga/)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Mwafrika Josue**
+
+- GitHub: [@mwafrika](https://github.com/mwafrika)
+- Twitter: [@mwafrika](@mwafrikamufung1)
+- LinkedIn: [Mwafrika Mufungizi](https://www.linkedin.com/in/mwafrika-mufungizi/)
+
+👤 **damdafayton**
+
+- [Github](https://github.com/damdafayton)
+- [LinkedIn](https://linkedin.com/in/damdafayton)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/cynthiainga/ruby-group-capstone/issues).
 
 ## Show your support
 
@@ -64,10 +101,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
+- Thanks to everyone who will get time to check this project especially to code reviewers.
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
