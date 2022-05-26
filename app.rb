@@ -9,6 +9,7 @@ require_relative './classes/book'
 require_relative './modules/add_book'
 require_relative './modules/preserve_book'
 require_relative './classes/label'
+require_relative './modules/preserve_music_album'
 
 class App
   attr_accessor :books, :games, :authors, :music_albums
@@ -18,13 +19,16 @@ class App
   include PreserveGames
   include AddBook
   include PreserveBook
+  include GenreManager
+  include MusicAlbumManager
+  include PreserveMusicAlbums
 
   def initialize
     @books = load_book
     @authors = []
-    @labels = load_label
-    @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
-    @music_albums = []
+    @labels = []
+    @genres = music_genres
+    @music_albums = load_music_albums(@genres)
     @games = []
   end
 
@@ -42,13 +46,17 @@ class App
   end
 
   def list_all_labels
-    puts 'list all labels'
+    puts 'There are no labels available' if @labels.empty?
+    @labels.each do |label|
+      puts "Title: #{label.title}, Color: #{label.color}"
+    end
   end
 
   def save_data
     save_games
     save_authors
     create_book
+    save_music_album(@music_albums)
   end
 
   def save_book
@@ -60,11 +68,11 @@ class App
   # end
 
   def list_all_music_albums
-    puts 'list music albums'
+    display_music_album(@music_albums)
   end
 
   def list_all_genres
-    puts 'list genres'
+    display_genres(@genres)
   end
 
   def add_music_album
