@@ -53,4 +53,4 @@ CREATE TABLE music_album (
 
 -- Update "music_album" table
 ALTER TABLE music_album ADD CONSTRAINT music_albums_id PRIMARY KEY (id)
-ALTER TABLE music_album ALTER id ADD GENERATED ALWAYS AS IDENTITY; 
+ALTER TABLE music_album ALTER id ADD GENERATED ALWAYS AS IDENTITY;
