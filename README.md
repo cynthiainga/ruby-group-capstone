@@ -4,6 +4,7 @@
 
 ![schema](https://github.com/microverseinc/curriculum-ruby/blob/main/group-capstone/images/catalog_of_my_things.png)
 
+
 ## Built With
 
 ### Languages
