@@ -40,3 +40,13 @@ CREATE TABLE labels (
     color VARCHAR(100),
     PRIMARY KEY(id)
 );
+
+CREATE TABLE genres (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(100),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE music_album (
+  on_spotify BOOLEAN
+)INHERITS(items);
